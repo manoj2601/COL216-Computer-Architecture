@@ -1,0 +1,12 @@
+first:
+ADD $v1 $a0 $a1
+SUB $t0 $t1 $t2
+BEQ $t4 $t5 third
+second:
+SRL $a3 $t5 3
+SW $t6 18($v1)
+third:
+SLL $a1 $a3 3
+LW $t7 20($v1)
+HALT 0 0 0
+
