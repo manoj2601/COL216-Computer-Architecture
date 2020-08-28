@@ -1,0 +1,469 @@
+IF : 0 ID : NOOP 0 0 0 EX : NOOP 0 0 0 MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 1 ID : NOOP 0 0 0 EX : NOOP 0 0 0 MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 3 ID : JAL fibonacci EX : NOOP 0 0 0 MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : NOOP 0 0 0
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 12 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 13 ID : SUB $a0 $s0 $t4 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t4 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t4 WB : BLEZ $t2 fibonacciexit
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t4
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 13 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 14 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 15 ID : ADD $s1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 16 ID : SUB $a0 $s0 $t3 EX : ADD $s1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 3 ID : JAL fibonacci EX : SUB $a0 $s0 $t3 MEM : ADD $s1 $v0 $zero WB : STALL3 0 0 0
+IF : 4 ID : STALL3 0 0 0 EX : JAL fibonacci MEM : SUB $a0 $s0 $t3 WB : ADD $s1 $v0 $zero
+IF : 5 ID : SUB $sp $sp $t1 EX : STALL3 0 0 0 MEM : JAL fibonacci WB : SUB $a0 $s0 $t3
+IF : 6 ID : SW $ra 2($sp) EX : SUB $sp $sp $t1 MEM : STALL3 0 0 0 WB : JAL fibonacci
+IF : 7 ID : SW $s0 1($sp) EX : SW $ra 2($sp) MEM : SUB $sp $sp $t1 WB : STALL3 0 0 0
+IF : 8 ID : SW $s1 0($sp) EX : SW $s0 1($sp) MEM : SW $ra 2($sp) WB : SUB $sp $sp $t1
+IF : 9 ID : ADD $s0 $a0 $zero EX : SW $s1 0($sp) MEM : SW $s0 1($sp) WB : SW $ra 2($sp)
+IF : 10 ID : ADD $v0 $t4 $zero EX : ADD $s0 $a0 $zero MEM : SW $s1 0($sp) WB : SW $s0 1($sp)
+IF : 11 ID : SUB $t2 $s0 $t3 EX : ADD $v0 $t4 $zero MEM : ADD $s0 $a0 $zero WB : SW $s1 0($sp)
+IF : 17 ID : BLEZ $t2 fibonacciexit EX : SUB $t2 $s0 $t3 MEM : ADD $v0 $t4 $zero WB : ADD $s0 $a0 $zero
+IF : 18 ID : STALL3 0 0 0 EX : BLEZ $t2 fibonacciexit MEM : SUB $t2 $s0 $t3 WB : ADD $v0 $t4 $zero
+IF : 19 ID : LW $ra 2($sp) EX : STALL3 0 0 0 MEM : BLEZ $t2 fibonacciexit WB : SUB $t2 $s0 $t3
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : STALL3 0 0 0 WB : BLEZ $t2 fibonacciexit
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : STALL3 0 0 0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 16 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 17 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 18 ID : ADD $v0 $s1 $v0 EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 19 ID : LW $ra 2($sp) EX : ADD $v0 $s1 $v0 MEM : STALL3 0 0 0 WB : JR $ra
+IF : 20 ID : LW $s0 1($sp) EX : LW $ra 2($sp) MEM : ADD $v0 $s1 $v0 WB : STALL3 0 0 0
+IF : 21 ID : LW $s1 0($sp) EX : LW $s0 1($sp) MEM : LW $ra 2($sp) WB : ADD $v0 $s1 $v0
+IF : 22 ID : ADD $sp $sp $t1 EX : LW $s1 0($sp) MEM : LW $s0 1($sp) WB : LW $ra 2($sp)
+IF : 1 ID : JR $ra EX : ADD $sp $sp $t1 MEM : LW $s1 0($sp) WB : LW $s0 1($sp)
+IF : 2 ID : STALL3 0 0 0 EX : JR $ra MEM : ADD $sp $sp $t1 WB : LW $s1 0($sp)
+IF : 3 ID : ADD $a1 $v0 $zero EX : STALL3 0 0 0 MEM : JR $ra WB : ADD $sp $sp $t1
+IF : 22 ID : J exit EX : ADD $a1 $v0 $zero MEM : STALL3 0 0 0 WB : JR $ra
+IF : 23 ID : STALL3 0 0 0 EX : J exit MEM : ADD $a1 $v0 $zero WB : STALL3 0 0 0
+IF : 24 ID : HALT EX : STALL3 0 0 0 MEM : J exit WB : ADD $a1 $v0 $zero
+IF : 25 ID :  EX : HALT MEM : STALL3 0 0 0 WB : J exit
+IF : 26 ID :  EX : HALT MEM : HALT WB : STALL3 0 0 0
