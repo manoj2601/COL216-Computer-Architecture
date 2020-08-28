@@ -1,0 +1,45 @@
+IF : 0 ID : NOOP 0 0 0 EX : NOOP 0 0 0 MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 1 ID : NOOP 0 0 0 EX : NOOP 0 0 0 MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 2 ID : SW $t1 0($ra) EX : NOOP 0 0 0 MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 3 ID : ADD $t2 $t1 $t1 EX : SW $t1 0($ra) MEM : NOOP 0 0 0 WB : NOOP 0 0 0
+IF : 4 ID : SW $t2 1($ra) EX : ADD $t2 $t1 $t1 MEM : SW $t1 0($ra) WB : NOOP 0 0 0
+IF : 5 ID : LW $t3 1($ra) EX : SW $t2 1($ra) MEM : ADD $t2 $t1 $t1 WB : SW $t1 0($ra)
+IF : 6 ID : ADD $t3 $t3 $t1 EX : LW $t3 1($ra) MEM : SW $t2 1($ra) WB : ADD $t2 $t1 $t1
+IF : 6 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 1($ra) WB : SW $t2 1($ra)
+IF : 7 ID : SW $t3 2($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 1($ra)
+IF : 8 ID : LW $t3 2($ra) EX : SW $t3 2($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 9 ID : ADD $t3 $t3 $t1 EX : LW $t3 2($ra) MEM : SW $t3 2($ra) WB : ADD $t3 $t3 $t1
+IF : 9 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 2($ra) WB : SW $t3 2($ra)
+IF : 10 ID : SW $t3 3($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 2($ra)
+IF : 11 ID : LW $t3 3($ra) EX : SW $t3 3($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 12 ID : ADD $t3 $t3 $t1 EX : LW $t3 3($ra) MEM : SW $t3 3($ra) WB : ADD $t3 $t3 $t1
+IF : 12 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 3($ra) WB : SW $t3 3($ra)
+IF : 13 ID : SW $t3 4($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 3($ra)
+IF : 14 ID : LW $t3 4($ra) EX : SW $t3 4($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 15 ID : ADD $t3 $t3 $t1 EX : LW $t3 4($ra) MEM : SW $t3 4($ra) WB : ADD $t3 $t3 $t1
+IF : 15 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 4($ra) WB : SW $t3 4($ra)
+IF : 16 ID : SW $t3 5($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 4($ra)
+IF : 17 ID : LW $t3 5($ra) EX : SW $t3 5($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 18 ID : ADD $t3 $t3 $t1 EX : LW $t3 5($ra) MEM : SW $t3 5($ra) WB : ADD $t3 $t3 $t1
+IF : 18 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 5($ra) WB : SW $t3 5($ra)
+IF : 19 ID : SW $t3 6($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 5($ra)
+IF : 20 ID : LW $t3 6($ra) EX : SW $t3 6($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 21 ID : ADD $t3 $t3 $t1 EX : LW $t3 6($ra) MEM : SW $t3 6($ra) WB : ADD $t3 $t3 $t1
+IF : 21 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 6($ra) WB : SW $t3 6($ra)
+IF : 22 ID : SW $t3 7($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 6($ra)
+IF : 23 ID : LW $t3 7($ra) EX : SW $t3 7($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 24 ID : ADD $t3 $t3 $t1 EX : LW $t3 7($ra) MEM : SW $t3 7($ra) WB : ADD $t3 $t3 $t1
+IF : 24 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 7($ra) WB : SW $t3 7($ra)
+IF : 25 ID : SW $t3 8($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 7($ra)
+IF : 26 ID : LW $t3 8($ra) EX : SW $t3 8($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 27 ID : ADD $t3 $t3 $t1 EX : LW $t3 8($ra) MEM : SW $t3 8($ra) WB : ADD $t3 $t3 $t1
+IF : 27 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 8($ra) WB : SW $t3 8($ra)
+IF : 28 ID : SW $t3 9($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 8($ra)
+IF : 29 ID : LW $t3 9($ra) EX : SW $t3 9($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 30 ID : ADD $t3 $t3 $t1 EX : LW $t3 9($ra) MEM : SW $t3 9($ra) WB : ADD $t3 $t3 $t1
+IF : 30 ID : ADD $t3 $t3 $t1 EX : STALL1 0 0 0 0 MEM : LW $t3 9($ra) WB : SW $t3 9($ra)
+IF : 31 ID : SW $t3 10($ra) EX : ADD $t3 $t3 $t1 MEM : STALL1 0 0 0 0 WB : LW $t3 9($ra)
+IF : 32 ID : LW $t3 10($ra) EX : SW $t3 10($ra) MEM : ADD $t3 $t3 $t1 WB : STALL1 0 0 0 0
+IF : 33 ID : HALT 0 0 0 0 EX : LW $t3 10($ra) MEM : SW $t3 10($ra) WB : ADD $t3 $t3 $t1
+IF : 34 ID :  EX : HALT 0 0 0 0 MEM : LW $t3 10($ra) WB : SW $t3 10($ra)
+IF : 35 ID :  EX : HALT 0 0 0 0 MEM : HALT 0 0 0 0 WB : LW $t3 10($ra)

@@ -1,0 +1,32 @@
+SW $t1 0($ra)
+ADD $t2 $t1 $t1
+SW $t2 1($ra)
+LW $t3 1($ra)
+ADD $t3 $t3 $t1
+SW $t3 2($ra)
+LW $t3 2($ra)
+ADD $t3 $t3 $t1
+SW $t3 3($ra)
+LW $t3 3($ra)
+ADD $t3 $t3 $t1
+SW $t3 4($ra)
+LW $t3 4($ra)
+ADD $t3 $t3 $t1
+SW $t3 5($ra)
+LW $t3 5($ra)
+ADD $t3 $t3 $t1
+SW $t3 6($ra)
+LW $t3 6($ra)
+ADD $t3 $t3 $t1
+SW $t3 7($ra)
+LW $t3 7($ra)
+ADD $t3 $t3 $t1
+SW $t3 8($ra)
+LW $t3 8($ra)
+ADD $t3 $t3 $t1
+SW $t3 9($ra)
+LW $t3 9($ra)
+ADD $t3 $t3 $t1
+SW $t3 10($ra)
+LW $t3 10($ra)
+HALT 0 0 0 0
