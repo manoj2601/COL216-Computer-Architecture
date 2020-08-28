@@ -1,0 +1,9 @@
+ADD $t1 $t2 $t3
+SUB $s0 $s1 $s3
+J Next
+Next:
+ADD $t3 $t3 $t2
+ADD $s1 $s2 $t0
+SW $t3 56($t0)
+SW $t3 56($t0)
+LW $t1 56($to)
