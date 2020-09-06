@@ -1,0 +1,28 @@
+Exception : infinity or NaN
+cycles : 1
+Exception : infinity or NaN
+cycles : 1
+Exception : infinity or NaN
+cycles : 1
+Exception : infinity or NaN
+cycles : 1
+11010101100000000000000000000000
+TOTAL cycles : 6
+Error : OVERFLOW
+Total cycles : 3
+Error : OVERFLOW
+Total cycles : 5
+Error : UNDERFLOW
+Total cycles : 3
+10000000100010110101001100000100
+TOTAL cycles : 4
+00000000000000000000000000000000
+Total cycles : 3
+Error : UNDERFLOW
+Total cycles : 3
+11010010100100101010010100101010
+TOTAL cycles : 4
+00001111111111111111111111111110
+TOTAL cycles : 4
+00000000000000000000000000000000
+Total cycles : 3
